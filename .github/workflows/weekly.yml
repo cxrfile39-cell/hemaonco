@@ -3,6 +3,12 @@ name: Weekly issue
 on:
   schedule:
     - cron: "30 16 * * 0"   # Monday 00:30 Taipei (Sunday 16:30 UTC)
+  push:                     # also build whenever these files change (e.g. first setup)
+    branches: [main]
+    paths:
+      - ".github/workflows/weekly.yml"
+      - "docs/panels.json"
+      - "scripts/build.py"
   workflow_dispatch:
     inputs:
       date:
