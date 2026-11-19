@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>血液腫瘤期刊週報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2;--card:#fff;--ink:#1d1f24;--muted:#6b6f78;--line:#e4e2dc;--soft:#f0eee9;
+  --gen:#3b5bdb;--onc:#0b7285;--heme:#c92a2a;--custom:#6741d9;--saved:#d9480f;
+  --font:"IBM Plex Sans","Noto Sans TC",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#15161a;--card:#1e2026;--ink:#e9e9ec;--muted:#9a9ea8;--line:#2e3038;--soft:#262830;
+  --gen:#748ffc;--onc:#3bc9db;--heme:#ff8787;--custom:#b197fc;--saved:#ffa94d;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top{max-width:1500px;margin:0 auto;padding:14px 18px 10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+h1{font-size:19px;margin:0;font-weight:700;letter-spacing:.01em}
+.week{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.week button{border:0;background:none;width:30px;height:30px;border-radius:50%;font-size:17px}
+.week button:hover:not(:disabled){background:var(--soft)}
+.week button:disabled{opacity:.3;cursor:default}
+.week span{font-size:13.5px;font-weight:500;padding:0 4px;white-space:nowrap}
+.spacer{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 12px;font-size:13.5px}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.status{font-size:12.5px;color:var(--muted);width:100%}
+.tabs{max-width:1500px;margin:0 auto;padding:0 18px 8px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tab{flex:none;border:0;background:none;padding:6px 12px;border-radius:8px;font-size:14px;font-weight:600;color:var(--muted)}
+.tab span{font-weight:400;font-size:12px;margin-left:4px;opacity:.8}
+.tab.on{background:var(--ink);color:var(--bg)}
+.nav{max-width:1500px;margin:0 auto;padding:14px 18px 0;display:flex;flex-wrap:wrap;gap:6px;scroll-margin-top:120px}
+.totop{position:fixed;right:16px;bottom:20px;z-index:6;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.12);display:none}
+.totop.on{display:block}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 10px;font-size:12.5px;text-align:left;line-height:1.35}
+.chip:hover{border-color:var(--c)}
+.chip .ck{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:4px;border:1.5px solid var(--c);margin-right:6px;vertical-align:-2px;font-size:11px;color:#fff}
+.chip.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 10%,var(--card))}
+.chip.on .ck{background:var(--c)}
+.chip:not(.on){color:var(--muted)}
+.navhd{width:100%;font-size:12.5px;color:var(--muted);display:flex;gap:10px;align-items:center;margin-bottom:2px}
+.lk{border:0;background:none;padding:0;font-size:12.5px;color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.chip .c{color:var(--muted);font-size:11px;margin-left:5px}
+.chip i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.banner{max-width:1500px;margin:12px auto 0;padding:0 18px}
+.banner>div{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--saved);border-radius:10px;padding:12px 14px;font-size:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+main{max-width:1500px;margin:0 auto;padding:16px 18px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;scroll-margin-top:120px}
+.ph{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);border-top:3px solid var(--c)}
+.ph h2{font-size:14.5px;margin:0;font-weight:700;line-height:1.3;flex:1;min-width:0}
+.ph .n{font-size:12px;color:var(--muted);background:var(--soft);border-radius:999px;padding:0 7px}
+.ph a.pm{font-size:12px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.ph a.pm:hover{color:var(--c)}
+.sub{font-size:11.5px;color:var(--muted);padding:6px 14px 0}
+ul{list-style:none;margin:0;padding:4px 0}
+li.art{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 14px;border-bottom:1px solid var(--soft)}
+li.art:last-child{border-bottom:0}
+.t{font-size:14px;line-height:1.38;font-weight:500;text-decoration:none}
+.t:hover{color:var(--c);text-decoration:underline}
+.meta{grid-column:1;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.meta b.jn{font-weight:600;color:var(--c);font-style:italic}
+.pml{color:var(--muted)}
+.tag{font-size:10.5px;font-weight:600;border-radius:4px;padding:0 5px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c)}
+.keep{grid-row:1/3;grid-column:2;align-self:start;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10.5px;color:var(--muted);cursor:pointer;user-select:none;padding-top:2px}
+.keep input{width:17px;height:17px;accent-color:var(--saved);margin:0;cursor:pointer}
+.keep:has(input:checked){color:var(--saved)}
+.more{display:block;width:100%;border:0;border-top:1px solid var(--line);background:none;padding:8px;font-size:13px;color:var(--muted)}
+.more:hover{color:var(--ink);background:var(--soft)}
+.empty,.err{padding:16px 14px;font-size:13.5px;color:var(--muted)}
+.err{color:var(--heme)}
+.err .btn{margin-top:8px}
+.sk{height:12px;border-radius:4px;background:var(--soft);margin:12px 14px;animation:p 1.2s ease-in-out infinite}
+.sk:nth-child(2n){width:70%}
+@keyframes p{50%{opacity:.45}}
+.x{margin-left:6px;border:0;background:none;color:var(--muted);font-size:16px;line-height:1;padding:0 2px}
+.x:hover{color:var(--heme)}
+/* dialog */
+.dlg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.dlg.on{display:flex}
+.sheet{background:var(--card);width:min(560px,100%);max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:18px 18px 28px}
+@media(min-width:700px){.dlg{align-items:center}.sheet{border-radius:16px}}
+.sheet h3{margin:0 0 12px;font-size:17px}
+.sheet h4{margin:18px 0 8px;font-size:13px;color:var(--muted);font-weight:600}
+label.f{display:block;font-size:13px;margin:10px 0 4px;color:var(--muted)}
+input[type=text],textarea{width:100%;font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+.row{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.tog{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:14px;border-bottom:1px solid var(--soft)}
+.tog input{width:16px;height:16px}
+.tog i{width:8px;height:8px;border-radius:50%}
+.foot{max-width:1500px;margin:0 auto;padding:0 18px 40px;font-size:12px;color:var(--muted)}
+</style></head>
+<body>
+<header>
+  <div class="top">
+    <h1>血液腫瘤期刊週報</h1>
+    <div class="week">
+      <button id="prev" aria-label="上一期">‹</button>
+      <span id="wk">載入中…</span>
+      <button id="next" aria-label="下一期">›</button>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn primary" id="manage">＋ 自訂關鍵字</button>
+    <div class="status" id="status"></div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+<nav class="nav" id="nav"></nav>
+<div class="banner" id="banner"></div>
+<main id="grid"></main>
+<button class="totop" id="totop">↑ 選擇類別</button>
+<div class="foot">每週一自動出刊，收錄上一週（週一至週日，台北時間）新進入 PubMed 的文章。點標題開啟原文；勾選「保留」的文章收在「★ 保留」分頁。保留與類別勾選存在這台裝置的瀏覽器中。資料來源：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>（NCBI, U.S. National Library of Medicine）。</div>
+
+<div class="dlg" id="dlg">
+  <div class="sheet">
+    <h3>自訂關鍵字面板</h3>
+    <form id="addForm">
+      <label class="f">面板名稱</label>
+      <input type="text" id="cName" maxlength="40" placeholder="例如：CML 新藥" required>
+      <label class="f">查詢關鍵字</label>
+      <textarea id="cQuery" placeholder="asciminib, ponatinib, chronic myeloid leukemia" required></textarea>
+      <div class="hint">用逗號分隔多個關鍵字（任一符合即列出），也可直接輸入 PubMed 語法。這裡新增的面板存在這台裝置，打開時即時向 PubMed 查詢。想讓所有人都看到、每週固定出刊，請改在 GitHub 的 <code>docs/panels.json</code> 的 custom 區新增。</div>
+      <label class="tog" style="border:0;margin-top:8px"><input type="checkbox" id="cScope" checked> 只搜尋精選的血液、腫瘤與綜合醫學期刊</label>
+      <div class="row"><button class="btn primary" type="submit">新增面板</button><span class="hint" id="addMsg"></span></div>
+    </form>
+    <h4>這台裝置上的自訂面板</h4>
+    <div id="toggles"></div>
+    <div class="row" style="margin-top:18px"><button class="btn" id="close">完成</button></div>
+  </div>
+</div>
+
+<script>
+const COLORS={asco:"var(--onc)",ash:"var(--heme)",custom:"var(--custom)",saved:"var(--saved)"};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const md=iso=>{const [y,m,d]=iso.split("-");return `${+m}/${+d}`};
+const slash=iso=>iso.replace(/-/g,"/");
+
+// ---------- local prefs ----------
+const P={hidden:[],saved:{},custom:[],tab:"asco"};
+try{Object.assign(P,JSON.parse(localStorage.getItem("hemonc-site-v1")||"{}"))}catch(e){}
+function save(){try{localStorage.setItem("hemonc-site-v1",JSON.stringify(P))}catch(e){}}
+
+// ---------- data ----------
+let CFG=null, ISSUES=[], cur=0, DATA={}, LIVE={};
+async function getJSON(u){const r=await fetch(u,{cache:"no-cache"}); if(!r.ok) throw new Error(r.status+" "+u); return r.json()}
+async function loadIssue(i){
+  const id=ISSUES[i].issue;
+  if(!DATA[id]) DATA[id]=await getJSON(`data/issues/${id}.json`);
+  return DATA[id];
+}
+
+// ---------- live search for this device's custom panels (NCBI E-utilities) ----------
+const EU="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
+let euChain=Promise.resolve();
+function eu(ep,params){ // one request at a time, ~3/s, as NCBI asks
+  const p=euChain.then(async()=>{
+    await new Promise(r=>setTimeout(r,380));
+    const u=EU+ep+"?"+new URLSearchParams({...params,db:"pubmed",retmode:"json",tool:"hemonc-weekly"});
+    const r=await fetch(u); if(!r.ok) throw new Error("PubMed "+r.status); return r.json();
+  });
+  euChain=p.catch(()=>{}); return p;
+}
+function toKw(raw){
+  raw=raw.trim();
+  if(/\[[a-z]+\]|\bAND\b|\bOR\b|\bNOT\b/.test(raw)) return `(${raw})`;
+  return "("+raw.split(/[,，、;；\n]+/).map(t=>t.trim().replace(/"/g,"")).filter(Boolean).map(t=>(/[\s\-':]/.test(t)?`"${t}"`:t)+"[tiab]").join(" OR ")+")";
+}
+function localQuery(c){const kw=toKw(c.query); return c.scope==="all"?kw:"("+CFG.core_journals.map(j=>`"${j}"[ta]`).join(" OR ")+") AND "+kw}
+const TAGS=[[/phase\s*(iii|3)\b/i,"Phase III"],[/randomi[sz]ed controlled/i,"RCT"],[/meta-analysis/i,"Meta-analysis"],[/systematic review/i,"Systematic review"],[/guideline/i,"Guideline"],[/^review$/i,"Review"],[/phase\s*(ii|2)\b/i,"Phase II"]];
+function tagsOf(types,title){const out=[];for(const t of types||[])for(const [re,l] of TAGS)if(re.test(t)){if(!out.includes(l))out.push(l);break}
+  if(!out.includes("Phase III")&&/phase\s*(3|iii)\b/i.test(title))out.push("Phase III");if(out.includes("Phase III"))out.splice(out.indexOf("Phase II")>>>0,out.includes("Phase II")?1:0);return out.slice(0,2)}
+async function liveSearch(c,iss){
+  const key=c.id+"|"+iss.issue; if(LIVE[key]&&LIVE[key].status!=="error") return;
+  LIVE[key]={status:"loading"}; render();
+  try{
+    const s=await eu("esearch.fcgi",{term:localQuery(c),datetype:"edat",mindate:slash(iss.start),maxdate:slash(iss.end),retmax:"100",sort:"pub_date"});
+    const ids=(s.esearchresult&&s.esearchresult.idlist)||[]; let items=[];
+    if(ids.length){
+      const r=(await eu("esummary.fcgi",{id:ids.join(",")})).result||{};
+      items=(r.uids||[]).map(u=>{const d=r[u]||{};const doi=((d.articleids||[]).find(a=>a.idtype==="doi")||{}).value||((d.elocationid||"").match(/10\.\S+/)||[""])[0];
+        const title=(d.title||"").replace(/<[^>]+>/g,"");const au=(d.authors||[]).filter(a=>(a.authtype||"Author")==="Author");
+        return {pmid:u,doi,title,journal:d.source||"",date:(d.sortpubdate||"").slice(0,10).replace(/\//g,"-"),author:au[0]?au[0].name:"",tags:tagsOf(d.pubtype,title)}})
+        .filter(a=>a.title).sort((a,b)=>b.date.localeCompare(a.date));
+    }
+    LIVE[key]={status:"ok",items};
+  }catch(e){LIVE[key]={status:"error",msg:String(e.message||e)}}
+  render();
+}
+
+// ---------- panels for the current tab ----------
+function allPanels(issue){
+  const base=CFG.panels.map(p=>({...p,g:p.set}));
+  const repo=(issue&&issue.custom||[]).map(c=>({id:c.id,set:"custom",g:"custom",name:c.name,query:c.query,sub:"每週出刊（GitHub 設定）"}));
+  const local=P.custom.map(c=>({id:c.id,set:"custom",g:"custom",name:c.name,query:localQuery(c),local:c,sub:(c.scope==="all"?"全 PubMed · ":"精選期刊 · ")+c.query+" · 即時查詢"}));
+  return [...base,...repo,...local];
+}
+function tabAll(issue){return P.tab==="saved"?[]:allPanels(issue).filter(p=>p.set===P.tab)}
+function tabShown(issue){return tabAll(issue).filter(p=>!P.hidden.includes(p.id))}
+function itemsFor(p,issue){
+  if(p.local){const r=LIVE[p.id+"|"+issue.issue]; return r||{status:"loading"}}
+  const ids=issue.panels[p.id];
+  if(!ids) return issue.failed&&issue.failed.includes(p.id)?{status:"error",msg:"本期這個類別查詢失敗"}:{status:"ok",items:[]};
+  return {status:"ok",items:ids.map(i=>issue.articles[i]).filter(Boolean)};
+}
+const pubmedUrl=(q,iss)=>"https://pubmed.ncbi.nlm.nih.gov/?term="+encodeURIComponent(`(${q}) AND ("${slash(iss.start)}"[edat] : "${slash(iss.end)}"[edat])`)+"&sort=date&size=50";
+
+// ---------- render ----------
+const expanded=new Set();
+function artHTML(a,pid,pname){
+  const key=a.pmid||a.doi||a.title, pm=a.pmid?`https://pubmed.ncbi.nlm.nih.gov/${a.pmid}/`:"";
+  const href=a.doi?`https://doi.org/${a.doi}`:(pm||"#");
+  const meta=[a.journal&&`<b class="jn">${esc(a.journal)}</b>`,a.date&&esc(a.date),a.author&&esc(a.author)+" et al.",(a.doi&&pm)?`<a class="pml" href="${pm}" target="_blank" rel="noopener">PubMed</a>`:""].filter(Boolean).join(" · ");
+  const tags=(a.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+  return `<li class="art"><a class="t" title="開啟原文" href="${href}" target="_blank" rel="noopener">${esc(a.title)}</a>
+    <label class="keep"><input type="checkbox" data-key="${esc(key)}" data-pid="${esc(pid)}" ${P.saved[key]?"checked":""}>保留</label>
+    <div class="meta">${meta}${tags?" "+tags:""}${pid==="__saved"&&a.panelName?` · ${esc(a.panelName)}`:""}</div></li>`;
+}
+function listHTML(pid,items,pname){
+  const lim=expanded.has(pid)?items.length:30;
+  let h=`<ul>${items.slice(0,lim).map(a=>artHTML(a,pid,pname)).join("")}</ul>`;
+  if(items.length>30) h+=`<button class="more" data-more="${pid}">${expanded.has(pid)?"收合":`顯示全部 ${items.length} 篇`}</button>`;
+  return h;
+}
+function panelEl(p,issue){
+  const el=document.createElement("section"); el.className="panel"; el.id="p-"+p.id; el.style.setProperty("--c",COLORS[p.g]);
+  const r=itemsFor(p,issue);
+  if(p.local&&r.status==="loading"&&!LIVE[p.id+"|"+issue.issue]) setTimeout(()=>liveSearch(p.local,issue));
+  let body;
+  if(r.status==="loading") body=`<div class="sk"></div><div class="sk"></div><div class="sk"></div>`;
+  else if(r.status==="error") body=`<div class="err">${esc(r.msg)}<br><a class="btn" style="text-decoration:none" href="${pubmedUrl(p.query,issue)}" target="_blank" rel="noopener">在 PubMed 開啟 ↗</a></div>`;
+  else if(!r.items.length) body=`<div class="empty">這一期沒有新文章。</div>`;
+  else body=listHTML(p.id,r.items,p.name);
+  const n=r.status==="ok"?`<span class="n">${r.items.length}</span>`:"";
+  el.innerHTML=`<div class="ph"><h2>${esc(p.name)}</h2>${n}<a class="pm" href="${pubmedUrl(p.query,issue)}" target="_blank" rel="noopener">PubMed ↗</a></div>${p.sub?`<div class="sub">${esc(p.sub)}</div>`:""}${body}`;
+  return el;
+}
+function savedEl(){
+  const items=Object.values(P.saved).sort((a,b)=>(b.savedAt||0)-(a.savedAt||0));
+  const el=document.createElement("section"); el.className="panel"; el.style.setProperty("--c",COLORS.saved);
+  el.innerHTML=`<div class="ph"><h2>★ 我的保留</h2><span class="n">${items.length}</span></div>`+(items.length?listHTML("__saved",items):`<div class="empty">勾選任一篇文章的「保留」，它就會一直留在這裡，跨期都看得到。</div>`);
+  return el;
+}
+let issueObj=null;
+function render(){
+  if(!issueObj) return;
+  const iss=issueObj;
+  $("#wk").textContent=(cur===0?"本期 ":"")+md(iss.issue)+(cur===0?"":" 期");
+  $("#prev").disabled=cur>=ISSUES.length-1; $("#next").disabled=cur===0;
+  $("#status").textContent=`收錄 ${md(iss.start)}–${md(iss.end)} 新進入 PubMed 的文章 · ${md(iss.issue)}（一）出刊 · 共 ${Object.keys(iss.articles).length} 篇`;
+  const cnt=s=>allPanels(iss).filter(p=>p.set===s&&!P.hidden.includes(p.id)).length;
+  $("#tabs").innerHTML=[["asco","ASCO",cnt("asco")],["ash","ASH",cnt("ash")],["custom","自訂",cnt("custom")],["saved","★ 保留",Object.keys(P.saved).length]]
+    .map(([k,l,c])=>`<button class="tab ${P.tab===k?"on":""}" data-tab="${k}">${l}<span>${c}</span></button>`).join("");
+  const all=tabAll(iss), shown=tabShown(iss);
+  $("#nav").style.display=all.length?"":"none";
+  $("#nav").innerHTML=`<div class="navhd">點選要顯示的類別（${shown.length}/${all.length}）<button class="lk" data-all="1">全選</button><button class="lk" data-all="0">全不選</button></div>`+
+    all.map(p=>{const on=!P.hidden.includes(p.id), r=itemsFor(p,iss);
+      return `<button class="chip ${on?"on":""}" data-pick="${p.id}" aria-pressed="${on}" style="--c:${COLORS[p.g]}"><b class="ck">${on?"✓":""}</b>${esc(p.name)}${r.status==="ok"?`<span class="c">${r.items.length}</span>`:""}</button>`}).join("");
+  let els;
+  if(P.tab==="saved") els=[savedEl()];
+  else if(!all.length){const d=document.createElement("section");d.className="panel";d.style.setProperty("--c",COLORS.custom);
+    d.innerHTML=`<div class="ph"><h2>還沒有自訂面板</h2></div><div class="empty">按右上角「＋ 自訂關鍵字」新增。</div>`;els=[d]}
+  else if(!shown.length){const d=document.createElement("section");d.className="panel";d.innerHTML=`<div class="empty">還沒有勾選任何類別。點上方的類別，勾選的才會顯示在這裡。</div>`;els=[d]}
+  else els=shown.map(p=>panelEl(p,iss));
+  $("#grid").replaceChildren(...els);
+  $("#toggles").innerHTML=P.custom.length?P.custom.map(c=>`<div class="tog"><i style="background:var(--custom)"></i>${esc(c.name)}<span class="hint" style="margin:0 0 0 6px">${esc(c.query.slice(0,40))}</span><button class="x" style="margin-left:auto" data-del="${c.id}">×</button></div>`).join(""):`<div class="hint">尚無</div>`;
+}
+
+// ---------- events ----------
+document.addEventListener("change",e=>{
+  const t=e.target; if(!t.dataset.key) return;
+  const key=t.dataset.key, pid=t.dataset.pid;
+  if(t.checked){
+    let a=null,name="";
+    if(pid!=="__saved"){const p=allPanels(issueObj).find(x=>x.id===pid); name=p?p.name:""; const r=p&&itemsFor(p,issueObj); a=r&&r.items&&r.items.find(x=>(x.pmid||x.doi||x.title)===key)}
+    if(a) P.saved[key]={...a,panelName:name,savedAt:Date.now()};
+  } else delete P.saved[key];
+  save(); document.querySelectorAll(`input[data-key="${CSS.escape(key)}"]`).forEach(i=>i.checked=t.checked);
+  const tb=document.querySelector('[data-tab="saved"] span'); if(tb) tb.textContent=Object.keys(P.saved).length;
+  if(P.tab==="saved") render();
+});
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-tab],[data-pick],[data-all],[data-more],[data-del]"); if(!t) return;
+  if(t.dataset.tab){P.tab=t.dataset.tab;save();render();window.scrollTo({top:0})}
+  else if(t.dataset.pick){const h=new Set(P.hidden);h.has(t.dataset.pick)?h.delete(t.dataset.pick):h.add(t.dataset.pick);P.hidden=[...h];save();render()}
+  else if(t.dataset.all){const h=new Set(P.hidden);tabAll(issueObj).forEach(p=>t.dataset.all==="1"?h.delete(p.id):h.add(p.id));P.hidden=[...h];save();render()}
+  else if(t.dataset.more){const id=t.dataset.more;expanded.has(id)?expanded.delete(id):expanded.add(id);render()}
+  else if(t.dataset.del){if(t.dataset.confirm!=="1"){t.dataset.confirm="1";t.textContent="確定刪除？";t.style.fontSize="12px";return}
+    P.custom=P.custom.filter(c=>c.id!==t.dataset.del);save();render()}
+});
+async function go(i){cur=i;try{issueObj=await loadIssue(i);render()}catch(e){$("#banner").innerHTML=`<div>這一期的資料讀取失敗（${esc(e.message)}）。</div>`}}
+$("#prev").onclick=()=>{if(cur<ISSUES.length-1)go(cur+1)};
+$("#next").onclick=()=>{if(cur>0)go(cur-1)};
+$("#manage").onclick=()=>$("#dlg").classList.add("on");
+$("#close").onclick=()=>$("#dlg").classList.remove("on");
+$("#dlg").onclick=e=>{if(e.target.id==="dlg")$("#dlg").classList.remove("on")};
+$("#totop").onclick=()=>$("#nav").scrollIntoView({behavior:"smooth"});
+window.addEventListener("scroll",()=>{const n=$("#nav");$("#totop").classList.toggle("on",n.offsetHeight>0&&n.getBoundingClientRect().bottom<0)},{passive:true});
+$("#addForm").onsubmit=e=>{
+  e.preventDefault();
+  const name=$("#cName").value.trim(),query=$("#cQuery").value.trim(); if(!name||!query) return;
+  P.custom.push({id:"l"+Date.now().toString(36),name,query,scope:$("#cScope").checked?"core":"all"});
+  P.tab="custom"; save();
+  $("#cName").value="";$("#cQuery").value="";$("#dlg").classList.remove("on"); render();
+};
+
+(async()=>{
+  try{
+    [CFG,{issues:ISSUES}]=await Promise.all([getJSON("panels.json"),getJSON("data/index.json")]);
+  }catch(e){
+    $("#wk").textContent="尚無資料";
+    $("#banner").innerHTML=`<div>還沒有任何一期。請到 GitHub 專案的 <b>Actions → Weekly issue → Run workflow</b> 手動產生第一期，約 2–3 分鐘後重新整理。</div>`;
+    return;
+  }
+  if(!ISSUES.length){$("#wk").textContent="尚無資料";return}
+  go(0);
+})();
+</script>
+</body>
+</html>
