@@ -1,0 +1,38 @@
+name: Weekly issue
+
+on:
+  schedule:
+    - cron: "30 16 * * 0"   # Monday 00:30 Taipei (Sunday 16:30 UTC)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Build the issue for this date's week (YYYY-MM-DD). Leave empty for this week."
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-issue
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build issue from PubMed
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+        run: python scripts/build.py ${{ github.event.inputs.date }}
+      - name: Commit
+        run: |
+          git config user.name "weekly-bot"
+          git config user.email "weekly-bot@users.noreply.github.com"
+          git add docs/data
+          git diff --cached --quiet || git commit -m "Issue $(TZ=Asia/Taipei date +%F)"
+          git push
