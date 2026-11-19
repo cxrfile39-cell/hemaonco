@@ -1,0 +1,335 @@
+{
+ "note": "ASCO/ASH 分類與 PubMed 查詢。custom 區可自行新增：{id, name, query}。query 可用逗號分隔關鍵字，或直接寫 PubMed 語法；scope 為 core 時只搜精選期刊，all 時搜全部 PubMed。",
+ "core_journals": [
+  "J Clin Oncol",
+  "Lancet Oncol",
+  "JAMA Oncol",
+  "Ann Oncol",
+  "Cancer Cell",
+  "Cancer Discov",
+  "Nat Rev Clin Oncol",
+  "Clin Cancer Res",
+  "N Engl J Med",
+  "Lancet",
+  "JAMA",
+  "Nat Med",
+  "BMJ",
+  "J Natl Cancer Inst",
+  "Eur J Cancer",
+  "JCO Oncol Pract",
+  "Blood",
+  "Lancet Haematol",
+  "Leukemia",
+  "Haematologica",
+  "Blood Adv",
+  "J Hematol Oncol",
+  "Am J Hematol",
+  "Blood Cancer J",
+  "Br J Haematol",
+  "Blood Cancer Discov",
+  "HemaSphere",
+  "Transplant Cell Ther",
+  "Bone Marrow Transplant",
+  "J Thromb Haemost",
+  "Thromb Haemost",
+  "Res Pract Thromb Haemost"
+ ],
+ "panels": [
+  {
+   "id": "asco0",
+   "set": "asco",
+   "name": "Breast Cancer — Local/Regional/Adjuvant",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((\"breast cancer\"[tiab] OR \"breast carcinoma\"[tiab]) AND (adjuvant[tiab] OR neoadjuvant[tiab] OR \"early-stage\"[tiab] OR \"early stage\"[tiab] OR DCIS[tiab] OR mastectomy[tiab] OR \"breast-conserving\"[tiab] OR radiotherapy[tiab])))"
+  },
+  {
+   "id": "asco1",
+   "set": "asco",
+   "name": "Breast Cancer — Metastatic",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((\"breast cancer\"[tiab] OR \"breast carcinoma\"[tiab]) AND (metastatic[tiab] OR advanced[tiab] OR \"stage IV\"[tiab])))"
+  },
+  {
+   "id": "asco2",
+   "set": "asco",
+   "name": "Care Delivery and Quality Care",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((cancer[tiab] OR oncology[tiab] OR tumor[tiab] OR neoplasm[tiab]) AND (\"care delivery\"[tiab] OR \"quality of care\"[tiab] OR \"quality improvement\"[tiab] OR telehealth[tiab] OR \"financial toxicity\"[tiab] OR \"access to care\"[tiab] OR disparities[tiab] OR \"value-based\"[tiab])))"
+  },
+  {
+   "id": "asco3",
+   "set": "asco",
+   "name": "Central Nervous System Tumors",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"Neuro Oncol\"[ta] OR \"J Neurooncol\"[ta]) AND (glioma[tiab] OR glioblastoma[tiab] OR \"brain tumor\"[tiab] OR \"brain metastases\"[tiab] OR meningioma[tiab] OR \"CNS lymphoma\"[tiab] OR medulloblastoma[tiab] OR leptomeningeal[tiab]))"
+  },
+  {
+   "id": "asco4",
+   "set": "asco",
+   "name": "Developmental Therapeutics — Immunotherapy",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (immunotherapy[tiab] OR \"immune checkpoint\"[tiab] OR \"PD-1\"[tiab] OR \"PD-L1\"[tiab] OR \"CTLA-4\"[tiab] OR \"LAG-3\"[tiab] OR \"cancer vaccine\"[tiab] OR bispecific[tiab] OR \"tumor-infiltrating lymphocytes\"[tiab] OR neoantigen[tiab]))"
+  },
+  {
+   "id": "asco5",
+   "set": "asco",
+   "name": "Developmental Therapeutics — Molecularly Targeted Agents and Tumor Biology",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"JCO Precis Oncol\"[ta]) AND (\"targeted therapy\"[tiab] OR \"tyrosine kinase inhibitor\"[tiab] OR KRAS[tiab] OR BRAF[tiab] OR FGFR[tiab] OR PI3K[tiab] OR \"antibody-drug conjugate\"[tiab] OR \"first-in-human\"[tiab] OR \"phase I\"[tiab] OR ctDNA[tiab] OR \"synthetic lethality\"[tiab] OR \"tumor biology\"[tiab]))"
+  },
+  {
+   "id": "asco6",
+   "set": "asco",
+   "name": "Gastrointestinal Cancer — Colorectal and Anal",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (colorectal[tiab] OR \"colon cancer\"[tiab] OR \"rectal cancer\"[tiab] OR \"anal cancer\"[tiab] OR \"anal canal\"[tiab] OR \"anal squamous\"[tiab]))"
+  },
+  {
+   "id": "asco7",
+   "set": "asco",
+   "name": "Gastrointestinal Cancer — Gastroesophageal, Pancreatic, and Hepatobiliary",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (\"gastric cancer\"[tiab] OR gastroesophageal[tiab] OR esophageal[tiab] OR oesophageal[tiab] OR \"pancreatic cancer\"[tiab] OR \"pancreatic adenocarcinoma\"[tiab] OR hepatocellular[tiab] OR \"biliary tract\"[tiab] OR cholangiocarcinoma[tiab] OR gallbladder[tiab] OR neuroendocrine[tiab]))"
+  },
+  {
+   "id": "asco8",
+   "set": "asco",
+   "name": "Genitourinary Cancer — Kidney and Bladder",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (\"renal cell\"[tiab] OR \"kidney cancer\"[tiab] OR urothelial[tiab] OR \"bladder cancer\"[tiab] OR \"upper tract\"[tiab]))"
+  },
+  {
+   "id": "asco9",
+   "set": "asco",
+   "name": "Genitourinary Cancer — Prostate, Testicular, and Penile",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (\"prostate cancer\"[tiab] OR \"castration-resistant\"[tiab] OR testicular[tiab] OR \"germ cell tumor\"[tiab] OR \"germ cell tumors\"[tiab] OR \"penile cancer\"[tiab]))"
+  },
+  {
+   "id": "asco10",
+   "set": "asco",
+   "name": "Gynecologic Cancer",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (\"ovarian cancer\"[tiab] OR \"cervical cancer\"[tiab] OR \"endometrial cancer\"[tiab] OR \"uterine cancer\"[tiab] OR gynecologic[tiab] OR vulvar[tiab] OR fallopian[tiab]))"
+  },
+  {
+   "id": "asco11",
+   "set": "asco",
+   "name": "Head and Neck Cancer",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (\"head and neck\"[tiab] OR nasopharyngeal[tiab] OR oropharyngeal[tiab] OR \"oral cavity\"[tiab] OR \"oral cancer\"[tiab] OR laryngeal[tiab] OR hypopharyngeal[tiab] OR salivary[tiab] OR \"thyroid cancer\"[tiab]))"
+  },
+  {
+   "id": "asco12",
+   "set": "asco",
+   "name": "Hematologic Malignancies — Leukemia, Myelodysplastic Syndromes, and Allotransplant",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta]) AND (\"acute myeloid\"[tiab] OR \"acute lymphoblastic\"[tiab] OR \"chronic myeloid\"[tiab] OR myelodysplastic[tiab] OR allogeneic[tiab] OR \"graft-versus-host\"[tiab]))"
+  },
+  {
+   "id": "asco13",
+   "set": "asco",
+   "name": "Hematologic Malignancies — Lymphoma and Chronic Lymphocytic Leukemia",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta]) AND (lymphoma[tiab] OR DLBCL[tiab] OR Hodgkin[tiab] OR \"chronic lymphocytic\"[tiab] OR CLL[tiab]))"
+  },
+  {
+   "id": "asco14",
+   "set": "asco",
+   "name": "Hematologic Malignancies — Plasma Cell Dyscrasia",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta]) AND (myeloma[tiab] OR \"plasma cell\"[tiab] OR amyloidosis[tiab] OR MGUS[tiab] OR smoldering[tiab]))"
+  },
+  {
+   "id": "asco15",
+   "set": "asco",
+   "name": "Lung Cancer — Non-Small Cell Local-Regional/Small Cell/Other Thoracic Cancers",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"J Thorac Oncol\"[ta] OR \"Lung Cancer\"[ta]) AND (((\"lung cancer\"[tiab] OR NSCLC[tiab] OR \"non-small cell\"[tiab]) AND (\"early-stage\"[tiab] OR resectable[tiab] OR adjuvant[tiab] OR neoadjuvant[tiab] OR perioperative[tiab] OR chemoradiotherapy[tiab])) OR (\"small cell lung\"[tiab] OR SCLC[tiab] OR mesothelioma[tiab] OR thymic[tiab])))"
+  },
+  {
+   "id": "asco16",
+   "set": "asco",
+   "name": "Lung Cancer — Non-Small Cell Metastatic",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta] OR \"J Thorac Oncol\"[ta] OR \"Lung Cancer\"[ta]) AND ((\"lung cancer\"[tiab] OR NSCLC[tiab] OR \"non-small cell\"[tiab]) AND (metastatic[tiab] OR advanced[tiab] OR \"stage IV\"[tiab])))"
+  },
+  {
+   "id": "asco17",
+   "set": "asco",
+   "name": "Melanoma/Skin Cancers",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (melanoma[tiab] OR \"merkel cell\"[tiab] OR \"cutaneous squamous\"[tiab] OR \"basal cell carcinoma\"[tiab] OR \"skin cancer\"[tiab]))"
+  },
+  {
+   "id": "asco18",
+   "set": "asco",
+   "name": "Pediatric Oncology",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((cancer[tiab] OR oncology[tiab] OR tumor[tiab] OR neoplasm[tiab]) AND (pediatric[tiab] OR paediatric[tiab] OR children[tiab] OR childhood[tiab] OR adolescent[tiab] OR adolescents[tiab]))) OR (\"Pediatr Blood Cancer\"[ta])"
+  },
+  {
+   "id": "asco19",
+   "set": "asco",
+   "name": "Prevention, Risk Reduction, and Hereditary Cancer",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((cancer[tiab] OR oncology[tiab] OR tumor[tiab] OR neoplasm[tiab]) AND (prevention[tiab] OR screening[tiab] OR \"risk reduction\"[tiab] OR hereditary[tiab] OR germline[tiab] OR \"Lynch syndrome\"[tiab] OR \"genetic testing\"[tiab] OR \"early detection\"[tiab])))"
+  },
+  {
+   "id": "asco20",
+   "set": "asco",
+   "name": "Sarcoma",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND (sarcoma[tiab] OR GIST[tiab] OR \"gastrointestinal stromal\"[tiab] OR osteosarcoma[tiab] OR Ewing[tiab] OR desmoid[tiab] OR liposarcoma[tiab] OR leiomyosarcoma[tiab]))"
+  },
+  {
+   "id": "asco21",
+   "set": "asco",
+   "name": "Symptoms and Survivorship",
+   "query": "((\"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Ann Oncol\"[ta] OR \"Cancer Cell\"[ta] OR \"Cancer Discov\"[ta] OR \"Nat Rev Clin Oncol\"[ta] OR \"Clin Cancer Res\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Natl Cancer Inst\"[ta] OR \"Eur J Cancer\"[ta] OR \"JCO Oncol Pract\"[ta]) AND ((cancer[tiab] OR oncology[tiab] OR tumor[tiab] OR neoplasm[tiab]) AND (survivorship[tiab] OR survivors[tiab] OR \"quality of life\"[tiab] OR symptom[tiab] OR palliative[tiab] OR \"supportive care\"[tiab] OR cardiotoxicity[tiab] OR \"patient-reported\"[tiab])))"
+  },
+  {
+   "id": "ash0",
+   "set": "ash",
+   "name": "100s: Red Cells, Erythropoiesis, and Iron",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (anemia[tiab] OR anaemia[tiab] OR \"iron deficiency\"[tiab] OR \"iron overload\"[tiab] OR erythropoiesis[tiab] OR erythropoietin[tiab] OR hepcidin[tiab] OR \"red blood cell\"[tiab] OR \"red cell\"[tiab] OR hemolytic[tiab] OR ferritin[tiab]))"
+  },
+  {
+   "id": "ash1",
+   "set": "ash",
+   "name": "100s: Hemoglobinopathies, Excluding Thalassemia",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"sickle cell\"[tiab] OR hemoglobinopathy[tiab] OR hemoglobinopathies[tiab] OR haemoglobinopathy[tiab] OR HbS[tiab]))"
+  },
+  {
+   "id": "ash2",
+   "set": "ash",
+   "name": "100s: Thalassemia and Globin Gene Regulation",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (thalassemia[tiab] OR thalassaemia[tiab] OR globin[tiab] OR \"fetal hemoglobin\"[tiab] OR HbF[tiab] OR BCL11A[tiab]))"
+  },
+  {
+   "id": "ash3",
+   "set": "ash",
+   "name": "200s: Hematopoiesis and Stem Cells",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta]) AND (hematopoiesis[tiab] OR haematopoiesis[tiab] OR \"hematopoietic stem\"[tiab] OR \"stem cell niche\"[tiab] OR \"clonal hematopoiesis\"[tiab] OR HSC[tiab] OR HSCs[tiab] OR progenitor[tiab]))"
+  },
+  {
+   "id": "ash4",
+   "set": "ash",
+   "name": "200s: Phagocytes, Granulocytes, and Myelopoiesis",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (neutrophil[tiab] OR neutrophils[tiab] OR granulocyte[tiab] OR myelopoiesis[tiab] OR macrophage[tiab] OR monocyte[tiab] OR neutropenia[tiab] OR eosinophil[tiab] OR histiocytosis[tiab] OR hemophagocytic[tiab] OR HLH[tiab]))"
+  },
+  {
+   "id": "ash5",
+   "set": "ash",
+   "name": "300s: Platelets and Megakaryocytes",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (platelet[tiab] OR platelets[tiab] OR megakaryocyte[tiab] OR thrombocytopenia[tiab] OR \"immune thrombocytopenia\"[tiab] OR ITP[tiab] OR thrombopoietin[tiab] OR \"thrombotic thrombocytopenic\"[tiab] OR TTP[tiab]))"
+  },
+  {
+   "id": "ash6",
+   "set": "ash",
+   "name": "300s: Coagulation and Fibrinolysis",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Haemophilia\"[ta]) AND (hemophilia[tiab] OR haemophilia[tiab] OR coagulation[tiab] OR fibrinolysis[tiab] OR \"von Willebrand\"[tiab] OR \"factor VIII\"[tiab] OR \"factor IX\"[tiab] OR \"bleeding disorder\"[tiab] OR emicizumab[tiab] OR fibrinogen[tiab]))"
+  },
+  {
+   "id": "ash7",
+   "set": "ash",
+   "name": "300s: Thrombosis and Anticoagulation",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (thrombosis[tiab] OR thromboembolism[tiab] OR \"pulmonary embolism\"[tiab] OR anticoagulant[tiab] OR anticoagulation[tiab] OR DOAC[tiab] OR heparin[tiab] OR antiphospholipid[tiab] OR thromboprophylaxis[tiab]))"
+  },
+  {
+   "id": "ash8",
+   "set": "ash",
+   "name": "400s: Transfusion Medicine",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta]) AND (transfusion[tiab] OR \"blood donor\"[tiab] OR \"blood donors\"[tiab] OR alloimmunization[tiab] OR \"patient blood management\"[tiab] OR \"blood component\"[tiab])) OR (\"Transfusion\"[ta] OR \"Vox Sang\"[ta] OR \"Transfus Med Rev\"[ta] OR \"Blood Transfus\"[ta])"
+  },
+  {
+   "id": "ash9",
+   "set": "ash",
+   "name": "500s: Bone Marrow Failure",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"aplastic anemia\"[tiab] OR \"bone marrow failure\"[tiab] OR PNH[tiab] OR \"paroxysmal nocturnal\"[tiab] OR \"Fanconi anemia\"[tiab] OR \"Diamond-Blackfan\"[tiab] OR \"telomere biology\"[tiab] OR dyskeratosis[tiab] OR \"pure red cell aplasia\"[tiab]))"
+  },
+  {
+   "id": "ash10",
+   "set": "ash",
+   "name": "600s: Acute Lymphoblastic Leukemias (ALL)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta] OR \"Pediatr Blood Cancer\"[ta]) AND (\"acute lymphoblastic\"[tiab] OR \"lymphoblastic leukemia\"[tiab] OR \"B-ALL\"[tiab] OR \"T-ALL\"[tiab] OR blinatumomab[tiab] OR inotuzumab[tiab]))"
+  },
+  {
+   "id": "ash11",
+   "set": "ash",
+   "name": "600s: Acute Myeloid Leukemias (AML)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"acute myeloid\"[tiab] OR AML[tiab] OR FLT3[tiab] OR NPM1[tiab] OR IDH1[tiab] OR IDH2[tiab] OR menin[tiab]))"
+  },
+  {
+   "id": "ash12",
+   "set": "ash",
+   "name": "600s: Chronic Lymphocytic Leukemias (CLL)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"chronic lymphocytic\"[tiab] OR CLL[tiab] OR \"small lymphocytic\"[tiab] OR Richter[tiab]))"
+  },
+  {
+   "id": "ash13",
+   "set": "ash",
+   "name": "600s: Chronic Myeloid Leukemia (CML)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"chronic myeloid\"[tiab] OR \"chronic myelogenous\"[tiab] OR CML[tiab] OR \"BCR-ABL1\"[tiab] OR \"BCR::ABL1\"[tiab] OR asciminib[tiab] OR ponatinib[tiab]))"
+  },
+  {
+   "id": "ash14",
+   "set": "ash",
+   "name": "600s: Myelodysplastic Syndromes (MDS)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (myelodysplastic[tiab] OR MDS[tiab] OR luspatercept[tiab] OR \"chronic myelomonocytic\"[tiab] OR CMML[tiab]))"
+  },
+  {
+   "id": "ash15",
+   "set": "ash",
+   "name": "600s: Myeloproliferative Syndromes (MPN)",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (myeloproliferative[tiab] OR MPN[tiab] OR MPNs[tiab] OR \"polycythemia vera\"[tiab] OR \"essential thrombocythemia\"[tiab] OR myelofibrosis[tiab] OR JAK2[tiab] OR CALR[tiab] OR mastocytosis[tiab]))"
+  },
+  {
+   "id": "ash16",
+   "set": "ash",
+   "name": "600s: Hodgkin Lymphomas",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND ((\"Hodgkin lymphoma\"[tiab] OR \"classic Hodgkin\"[tiab] OR \"classical Hodgkin\"[tiab] OR \"Hodgkin disease\"[tiab]) NOT \"non-Hodgkin\"[ti]))"
+  },
+  {
+   "id": "ash17",
+   "set": "ash",
+   "name": "600s: Aggressive Non-Hodgkin Lymphomas",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (DLBCL[tiab] OR \"diffuse large B-cell\"[tiab] OR \"large B-cell lymphoma\"[tiab] OR Burkitt[tiab] OR \"high-grade B-cell\"[tiab] OR \"primary mediastinal\"[tiab] OR \"peripheral T-cell\"[tiab] OR \"T-cell lymphoma\"[tiab] OR \"aggressive lymphoma\"[tiab] OR \"CNS lymphoma\"[tiab]))"
+  },
+  {
+   "id": "ash18",
+   "set": "ash",
+   "name": "600s: Indolent Non-Hodgkin Lymphomas",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"follicular lymphoma\"[tiab] OR \"marginal zone\"[tiab] OR Waldenström[tiab] OR Waldenstrom[tiab] OR \"mantle cell\"[tiab] OR \"indolent lymphoma\"[tiab] OR \"hairy cell\"[tiab] OR lymphoplasmacytic[tiab]))"
+  },
+  {
+   "id": "ash19",
+   "set": "ash",
+   "name": "600s: Multiple Myeloma and Plasma Cell Dyscrasias",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (myeloma[tiab] OR \"plasma cell\"[tiab] OR amyloidosis[tiab] OR MGUS[tiab] OR POEMS[tiab] OR smoldering[tiab]))"
+  },
+  {
+   "id": "ash20",
+   "set": "ash",
+   "name": "700s: Allogeneic Transplantation",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (allogeneic[tiab] OR \"allo-HCT\"[tiab] OR \"allo-HSCT\"[tiab] OR \"graft-versus-host\"[tiab] OR GVHD[tiab] OR haploidentical[tiab] OR \"conditioning regimen\"[tiab]))"
+  },
+  {
+   "id": "ash21",
+   "set": "ash",
+   "name": "700s: Autologous Transplantation",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (autologous[tiab] OR ASCT[tiab] OR \"auto-HCT\"[tiab] OR \"high-dose chemotherapy\"[tiab]))"
+  },
+  {
+   "id": "ash22",
+   "set": "ash",
+   "name": "700s: Cellular Immunotherapies",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"CAR-T\"[tiab] OR \"CAR T\"[tiab] OR \"chimeric antigen receptor\"[tiab] OR \"CAR-NK\"[tiab] OR \"TCR-T\"[tiab] OR \"adoptive cell\"[tiab] OR \"T-cell therapy\"[tiab]))"
+  },
+  {
+   "id": "ash23",
+   "set": "ash",
+   "name": "800s: Gene Therapies",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta] OR \"N Engl J Med\"[ta] OR \"Lancet\"[ta] OR \"JAMA\"[ta] OR \"Nat Med\"[ta] OR \"BMJ\"[ta] OR \"J Clin Oncol\"[ta] OR \"Lancet Oncol\"[ta] OR \"JAMA Oncol\"[ta]) AND (\"gene therapy\"[tiab] OR \"gene editing\"[tiab] OR CRISPR[tiab] OR lentiviral[tiab] OR AAV[tiab] OR \"base editing\"[tiab] OR exagamglogene[tiab] OR etranacogene[tiab] OR \"gene-modified\"[tiab]))"
+  },
+  {
+   "id": "ash24",
+   "set": "ash",
+   "name": "900s: Health Services and Quality Improvement",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta]) AND (\"health services\"[tiab] OR \"quality improvement\"[tiab] OR \"access to care\"[tiab] OR \"cost-effectiveness\"[tiab] OR costs[tiab] OR disparities[tiab] OR \"health care utilization\"[tiab] OR implementation[tiab] OR telehealth[tiab]))"
+  },
+  {
+   "id": "ash25",
+   "set": "ash",
+   "name": "900s: Outcomes Research",
+   "query": "((\"Blood\"[ta] OR \"Lancet Haematol\"[ta] OR \"Leukemia\"[ta] OR \"Haematologica\"[ta] OR \"Blood Adv\"[ta] OR \"J Hematol Oncol\"[ta] OR \"Am J Hematol\"[ta] OR \"Blood Cancer J\"[ta] OR \"Br J Haematol\"[ta] OR \"Blood Cancer Discov\"[ta] OR \"HemaSphere\"[ta] OR \"Transplant Cell Ther\"[ta] OR \"Bone Marrow Transplant\"[ta] OR \"J Thromb Haemost\"[ta] OR \"Thromb Haemost\"[ta] OR \"Res Pract Thromb Haemost\"[ta]) AND (\"outcomes research\"[tiab] OR \"real-world\"[tiab] OR \"population-based\"[tiab] OR registry[tiab] OR SEER[tiab] OR \"retrospective cohort\"[tiab] OR epidemiology[tiab] OR incidence[tiab]))"
+  }
+ ],
+ "custom": [
+  {
+   "id": "c-example",
+   "name": "範例：CML 新藥",
+   "query": "asciminib, ponatinib, olverembatinib",
+   "scope": "core"
+  }
+ ]
+}
