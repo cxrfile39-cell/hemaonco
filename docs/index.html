@@ -144,6 +144,18 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const md=iso=>{const [y,m,d]=iso.split("-");return `${+m}/${+d}`};
 const slash=iso=>iso.replace(/-/g,"/");
+function nextUpdate(){ // next Monday 00:30 Taipei time, whatever the viewer's time zone
+  const t=new Date(Date.now()+8*36e5); // Taipei clock read through UTC fields
+  const n=new Date(Date.UTC(t.getUTCFullYear(),t.getUTCMonth(),t.getUTCDate(),0,30));
+  n.setUTCDate(n.getUTCDate()+((8-n.getUTCDay())%7||0));
+  if(n<=t) n.setUTCDate(n.getUTCDate()+7);
+  return `${n.getUTCMonth()+1}/${n.getUTCDate()}（一）00:30`;
+}
+function fmtGen(g){ // e.g. "2026-11-16T00:34+08:00" → 2026/11/16 (一) 00:34, shown in Taipei time
+  const m=String(g).match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/); if(!m) return g;
+  const wd="日一二三四五六"[new Date(+m[1],+m[2]-1,+m[3]).getDay()];
+  return `${m[1]}/${+m[2]}/${+m[3]}（${wd}）${m[4]}:${m[5]}`;
+}
 
 // ---------- local prefs ----------
 const P={hidden:[],saved:{},custom:[],tab:"asco"};
@@ -256,7 +268,7 @@ function render(){
   const iss=issueObj;
   $("#wk").textContent=(cur===0?"本期 ":"")+md(iss.issue)+(cur===0?"":" 期");
   $("#prev").disabled=cur>=ISSUES.length-1; $("#next").disabled=cur===0;
-  $("#status").textContent=`收錄 ${md(iss.start)}–${md(iss.end)} 新進入 PubMed 的文章 · ${md(iss.issue)}（一）出刊 · 共 ${Object.keys(iss.articles).length} 篇`;
+  $("#status").textContent=`收錄 ${md(iss.start)}–${md(iss.end)} 新進入 PubMed 的文章 · ${md(iss.issue)}（一）出刊 · 共 ${Object.keys(iss.articles).length} 篇` + (iss.generated?` · 上次更新：${fmtGen(iss.generated)}`:"") + ` · 下次更新：${nextUpdate()}`;
   const cnt=s=>allPanels(iss).filter(p=>p.set===s&&!P.hidden.includes(p.id)).length;
   $("#tabs").innerHTML=[["asco","ASCO",cnt("asco")],["ash","ASH",cnt("ash")],["custom","自訂",cnt("custom")],["saved","★ 保留",Object.keys(P.saved).length]]
     .map(([k,l,c])=>`<button class="tab ${P.tab===k?"on":""}" data-tab="${k}">${l}<span>${c}</span></button>`).join("");
