@@ -19,8 +19,10 @@
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
+header::before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--heme) 0 50%,var(--onc) 50% 100%)}
 header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top{max-width:1500px;margin:0 auto;padding:14px 18px 10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.h-heme{color:var(--heme)}.h-onc{color:var(--onc)}
 h1{font-size:19px;margin:0;font-weight:700;letter-spacing:.01em}
 .week{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
 .week button{border:0;background:none;width:30px;height:30px;border-radius:50%;font-size:17px}
@@ -102,7 +104,7 @@ textarea{min-height:64px;resize:vertical}
 <body>
 <header>
   <div class="top">
-    <h1>血液腫瘤期刊週報</h1>
+    <h1><span class="h-heme">血液</span><span class="h-onc">腫瘤</span>期刊週報</h1>
     <div class="week">
       <button id="prev" aria-label="上一期">‹</button>
       <span id="wk">載入中…</span>
