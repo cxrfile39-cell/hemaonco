@@ -22,6 +22,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 header::before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--heme) 0 50%,var(--onc) 50% 100%)}
 header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top{max-width:1500px;margin:0 auto;padding:14px 18px 10px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.logo{width:34px;height:34px;flex:none;margin-right:-6px}
+.top{position:relative}
+.top::after{content:"";position:absolute;right:0;top:0;bottom:0;width:min(420px,60%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='120' viewBox='0 0 260 120'%3E%3Cg fill='none' stroke-width='2'%3E%3Cellipse cx='40' cy='30' rx='16' ry='13' stroke='%23c92a2a'/%3E%3Cellipse cx='40' cy='30' rx='7' ry='5' stroke='%23c92a2a'/%3E%3Cellipse cx='120' cy='85' rx='14' ry='11' stroke='%23c92a2a' transform='rotate(-20 120 85)'/%3E%3Cellipse cx='120' cy='85' rx='6' ry='4' stroke='%23c92a2a' transform='rotate(-20 120 85)'/%3E%3Ccircle cx='200' cy='35' r='17' stroke='%230b7285'/%3E%3Ccircle cx='204' cy='32' r='6' stroke='%230b7285'/%3E%3Cellipse cx='230' cy='95' rx='12' ry='10' stroke='%23c92a2a'/%3E%3Ccircle cx='70' cy='95' r='12' stroke='%230b7285'/%3E%3Ccircle cx='73' cy='93' r='4' stroke='%230b7285'/%3E%3C/g%3E%3C/svg%3E") right center/260px 120px repeat-x;opacity:.10;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.top>*{position:relative;z-index:1}
+.pi{width:18px;height:18px;flex:none;color:var(--c)}
+.helix{display:block;width:100%;max-width:340px;height:22px;margin:0 0 10px;opacity:.55}
 .h-heme{color:var(--heme)}.h-onc{color:var(--onc)}
 h1{font-size:19px;margin:0;font-weight:700;letter-spacing:.01em}
 .week{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
@@ -104,6 +110,13 @@ textarea{min-height:64px;resize:vertical}
 <body>
 <header>
   <div class="top">
+    <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="30" cy="19" r="13" fill="color-mix(in srgb,var(--onc) 16%,transparent)" stroke="var(--onc)" stroke-width="2"/>
+      <circle cx="32" cy="17" r="5" fill="var(--onc)" opacity=".85"/>
+      <circle cx="25" cy="13" r="1.6" fill="var(--onc)"/><circle cx="37" cy="25" r="1.4" fill="var(--onc)"/>
+      <ellipse cx="17" cy="31" rx="13" ry="11" fill="var(--heme)"/>
+      <ellipse cx="17" cy="31" rx="6.5" ry="5" fill="color-mix(in srgb,var(--heme) 55%,#fff)" opacity=".75"/>
+    </svg>
     <h1><span class="h-heme">血液</span><span class="h-onc">腫瘤</span>期刊週報</h1>
     <div class="week">
       <button id="prev" aria-label="上一期">‹</button>
@@ -120,7 +133,7 @@ textarea{min-height:64px;resize:vertical}
 <div class="banner" id="banner"></div>
 <main id="grid"></main>
 <button class="totop" id="totop">↑ 選擇類別</button>
-<div class="foot">每週一自動出刊，收錄上一週（週一至週日，台北時間）新進入 PubMed 的文章。點標題開啟原文；勾選「保留」的文章收在「★ 保留」分頁。保留與類別勾選存在這台裝置的瀏覽器中。資料來源：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>（NCBI, U.S. National Library of Medicine）。<div class="credit">製作者：JH CHIU MD ・ 協作：Claude Opus 5.5</div></div>
+<div class="foot"><svg class="helix" viewBox="0 0 340 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 C 21 -3, 21 25, 42.5 11 S 64 -3, 85 11 S 106 25, 127.5 11 S 149 -3, 170 11 S 191 25, 212.5 11 S 234 -3, 255 11 S 276 25, 297.5 11 S 319 -3, 340 11" fill="none" stroke="var(--heme)" stroke-width="2"/><path d="M0 11 C 21 25, 21 -3, 42.5 11 S 64 25, 85 11 S 106 -3, 127.5 11 S 149 25, 170 11 S 191 -3, 212.5 11 S 234 25, 255 11 S 276 -3, 297.5 11 S 319 25, 340 11" fill="none" stroke="var(--onc)" stroke-width="2"/></svg>每週一自動出刊，收錄上一週（週一至週日，台北時間）新進入 PubMed 的文章。點標題開啟原文；勾選「保留」的文章收在「★ 保留」分頁。保留與類別勾選存在這台裝置的瀏覽器中。資料來源：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>（NCBI, U.S. National Library of Medicine）。<div class="credit">製作者：JH CHIU MD ・ 協作：Claude Opus 5.5</div></div>
 
 <div class="dlg" id="dlg">
   <div class="sheet">
@@ -245,6 +258,11 @@ function listHTML(pid,items,pname){
   if(items.length>30) h+=`<button class="more" data-more="${pid}">${expanded.has(pid)?"收合":`顯示全部 ${items.length} 篇`}</button>`;
   return h;
 }
+const ICON={
+ ash:'<svg class="pi" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9.5" ry="8" fill="currentColor" opacity=".9"/><ellipse cx="12" cy="12" rx="4.5" ry="3.4" fill="#fff" opacity=".45"/></svg>',
+ asco:'<svg class="pi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="11" r="3.6" fill="currentColor"/><circle cx="7.5" cy="8" r="1" fill="currentColor"/><circle cx="16.5" cy="16.5" r="1" fill="currentColor"/></svg>',
+ custom:'<svg class="pi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>'
+};
 function panelEl(p,issue){
   const el=document.createElement("section"); el.className="panel"; el.id="p-"+p.id; el.style.setProperty("--c",COLORS[p.g]);
   const r=itemsFor(p,issue);
@@ -255,7 +273,7 @@ function panelEl(p,issue){
   else if(!r.items.length) body=`<div class="empty">這一期沒有新文章。</div>`;
   else body=listHTML(p.id,r.items,p.name);
   const n=r.status==="ok"?`<span class="n">${r.items.length}</span>`:"";
-  el.innerHTML=`<div class="ph"><h2>${esc(p.name)}</h2>${n}<a class="pm" href="${pubmedUrl(p.query,issue)}" target="_blank" rel="noopener">PubMed ↗</a></div>${p.sub?`<div class="sub">${esc(p.sub)}</div>`:""}${body}`;
+  el.innerHTML=`<div class="ph">${ICON[p.g]||""}<h2>${esc(p.name)}</h2>${n}<a class="pm" href="${pubmedUrl(p.query,issue)}" target="_blank" rel="noopener">PubMed ↗</a></div>${p.sub?`<div class="sub">${esc(p.sub)}</div>`:""}${body}`;
   return el;
 }
 function savedEl(){
