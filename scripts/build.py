@@ -74,7 +74,8 @@ def search(query, start, end):
 
 TAGS = [(r"phase\s*(iii|3)\b", "Phase III"), (r"randomi[sz]ed controlled", "RCT"),
         (r"meta-analysis", "Meta-analysis"), (r"systematic review", "Systematic review"),
-        (r"guideline", "Guideline"), (r"^review$", "Review"), (r"phase\s*(ii|2)\b", "Phase II")]
+        (r"guideline", "Guideline"), (r"^review$", "Review"), (r"phase\s*(ii|2)\b", "Phase II"),
+        (r"^editorial$", "Editorial"), (r"^comment$", "Comment"), (r"^letter$", "Letter")]
 
 
 def tags(pubtypes, title):
@@ -89,6 +90,24 @@ def tags(pubtypes, title):
     if "Phase III" in out and "Phase II" in out:
         out.remove("Phase II")
     return out[:2]
+
+
+GUIDE_PT = {"practice guideline", "guideline", "consensus development conference",
+            "consensus development conference, nih"}
+META_PT = {"meta-analysis", "systematic review", "network meta-analysis"}
+REVIEW_PT = {"review", "scoping review"}
+
+
+def article_type(pubtypes, title):
+    """One of: orig, review, meta, guide (shown as four blocks on the page)."""
+    pt = {t.lower() for t in pubtypes}
+    if pt & GUIDE_PT or re.search(r"\b(guidelines?|consensus|recommendations?|position (paper|statement))\b", title, re.I):
+        return "guide"
+    if pt & META_PT or re.search(r"meta-analy|systematic review", title, re.I):
+        return "meta"
+    if pt & REVIEW_PT:
+        return "review"
+    return "orig"
 
 
 def summaries(pmids):
@@ -108,7 +127,8 @@ def summaries(pmids):
             out[uid] = {"pmid": uid, "doi": doi, "title": title,
                         "journal": d.get("source", ""), "date": date,
                         "author": authors[0] if authors else "",
-                        "tags": tags(d.get("pubtype", []), title)}
+                        "tags": tags(d.get("pubtype", []), title),
+                        "type": article_type(d.get("pubtype", []), title)}
     return out
 
 
