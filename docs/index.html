@@ -118,6 +118,14 @@ textarea{min-height:64px;resize:vertical}
 .tog{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:14px;border-bottom:1px solid var(--soft)}
 .tog input{width:16px;height:16px}
 .tog i{width:8px;height:8px;border-radius:50%}
+.logic{margin:16px 0 4px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:0 14px;color:var(--ink);font-size:13px;line-height:1.65}
+.logic summary{cursor:pointer;padding:11px 0;font-weight:600;font-size:14px}
+.logic h5{margin:12px 0 4px;font-size:13.5px}
+.logic p{margin:0 0 6px;color:var(--muted)}
+.logic ul{margin:0 0 6px;padding-left:18px;color:var(--muted)}
+.logic li{margin-bottom:3px}
+.logic b{color:var(--ink);font-weight:600}
+.logic[open]{padding-bottom:10px}
 .credit{margin-top:10px;font-size:13px;color:var(--ink);font-weight:500}
 .foot{max-width:1500px;margin:0 auto;padding:0 18px 40px;font-size:12px;color:var(--muted)}
 </style></head>
@@ -147,7 +155,34 @@ textarea{min-height:64px;resize:vertical}
 <div class="banner" id="banner"></div>
 <main id="grid"></main>
 <button class="totop" id="totop">↑ 選擇類別</button>
-<div class="foot"><svg class="helix" viewBox="0 0 340 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 C 21 -3, 21 25, 42.5 11 S 64 -3, 85 11 S 106 25, 127.5 11 S 149 -3, 170 11 S 191 25, 212.5 11 S 234 -3, 255 11 S 276 25, 297.5 11 S 319 -3, 340 11" fill="none" stroke="var(--heme)" stroke-width="2"/><path d="M0 11 C 21 25, 21 -3, 42.5 11 S 64 25, 85 11 S 106 -3, 127.5 11 S 149 25, 170 11 S 191 -3, 212.5 11 S 234 25, 255 11 S 276 -3, 297.5 11 S 319 25, 340 11" fill="none" stroke="var(--onc)" stroke-width="2"/></svg>每週一自動出刊，收錄上一週（週一至週日，台北時間）新進入 PubMed 的文章。點標題開啟原文；勾選「保留」的文章收在「★ 保留」分頁。保留與類別勾選存在這台裝置的瀏覽器中。資料來源：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>（NCBI, U.S. National Library of Medicine）。<div class="credit">製作者：JH CHIU MD ・ 協作：Claude Opus 5.5</div></div>
+<div class="foot"><svg class="helix" viewBox="0 0 340 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 C 21 -3, 21 25, 42.5 11 S 64 -3, 85 11 S 106 25, 127.5 11 S 149 -3, 170 11 S 191 25, 212.5 11 S 234 -3, 255 11 S 276 25, 297.5 11 S 319 -3, 340 11" fill="none" stroke="var(--heme)" stroke-width="2"/><path d="M0 11 C 21 25, 21 -3, 42.5 11 S 64 25, 85 11 S 106 -3, 127.5 11 S 149 25, 170 11 S 191 -3, 212.5 11 S 234 25, 255 11 S 276 -3, 297.5 11 S 319 25, 340 11" fill="none" stroke="var(--onc)" stroke-width="2"/></svg>每週一自動出刊，收錄上一週（週一至週日，台北時間）新進入 PubMed 的文章。點標題開啟原文；勾選「保留」的文章收在「★ 保留」分頁。保留與類別勾選存在這台裝置的瀏覽器中。資料來源：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a>（NCBI, U.S. National Library of Medicine）。<details class="logic">
+<summary>搜尋邏輯說明</summary>
+<h5>1. 收錄期間</h5>
+<p>每週一 00:30（台北時間）出刊，收錄上一週週一至週日<b>新進入 PubMed 的文章</b>（依 PubMed 收錄日 Entry Date，而非期刊出版日）。因此線上先行發表（Epub ahead of print）的文章，會在進入 PubMed 的那一週出現；較晚被收錄的文章會出現在之後的期數。</p>
+<h5>2. 搜尋的期刊</h5>
+<ul>
+<li><b>腫瘤期刊：</b>J Clin Oncol、Lancet Oncol、JAMA Oncol、Ann Oncol、Cancer Cell、Cancer Discov、Nat Rev Clin Oncol、Clin Cancer Res</li>
+<li><b>綜合醫學及其他：</b>N Engl J Med、Lancet、JAMA、Nat Med、BMJ、J Natl Cancer Inst、Eur J Cancer、JCO Oncol Pract</li>
+<li><b>血液期刊：</b>Blood、Lancet Haematol、Leukemia、Haematologica、Blood Adv、J Hematol Oncol、Am J Hematol、Blood Cancer J、Br J Haematol、Blood Cancer Discov、HemaSphere、Transplant Cell Ther、Bone Marrow Transplant、J Thromb Haemost、Thromb Haemost、Res Pract Thromb Haemost</li>
+<li><b>ASCO 類別</b>搜尋腫瘤期刊與綜合醫學期刊；血液腫瘤三類另加血液期刊。<b>ASH 類別</b>搜尋血液期刊，大多數類別另加綜合醫學與主要腫瘤期刊（NEJM、Lancet、JAMA、Nat Med、BMJ、JCO、Lancet Oncol、JAMA Oncol）。</li>
+<li><b>部分類別另加專科期刊：</b>CNS（Neuro Oncol、J Neurooncol）、肺癌（J Thorac Oncol、Lung Cancer）、標靶藥物（JCO Precis Oncol）、ALL（Pediatr Blood Cancer）、凝血（Haemophilia）。Pediatric Oncology 與 Transfusion Medicine 另外整本收錄 Pediatr Blood Cancer 及 Transfusion、Vox Sang、Transfus Med Rev、Blood Transfus。</li>
+</ul>
+<h5>3. 類別比對</h5>
+<p>每個類別以一組關鍵字比對<b>標題或摘要</b>（PubMed [tiab]），任一關鍵字符合即列入；部分類別需同時符合兩組條件（例如乳癌＋輔助治療相關字、乳癌＋轉移相關字），Hodgkin 類別排除標題含 non-Hodgkin 的文章。一篇文章可能同時出現在多個類別。每個面板右上角的「PubMed ↗」可看到該類別完整的查詢語法與結果。</p>
+<h5>4. 文章類型</h5>
+<p>依 PubMed 標註的文章類型（Publication Type）分區，並參考標題用字：</p>
+<ul>
+<li><b>Consensus／Guideline：</b>Practice Guideline、Guideline、Consensus Development Conference，或標題含 guideline、consensus、recommendation、position statement</li>
+<li><b>Meta-analysis：</b>Meta-Analysis、Systematic Review、Network Meta-Analysis，或標題含 meta-analysis、systematic review</li>
+<li><b>Review：</b>Review、Scoping Review</li>
+<li><b>Original：</b>其餘文章，包括臨床試驗、觀察性研究、基礎研究；社論、評論、讀者投書也歸在此區，並標示 Editorial、Comment、Letter</li>
+</ul>
+<p>Phase III、RCT 等標籤依 Publication Type 及標題判斷。</p>
+<h5>5. 自訂關鍵字</h5>
+<p>以逗號分隔的關鍵字任一符合即列入（比對標題或摘要），也可直接輸入 PubMed 語法；可選擇只搜上述精選期刊或全部 PubMed。</p>
+<h5>6. 限制</h5>
+<p>關鍵字比對可能納入不完全相關的文章，也可能漏掉用字不同的文章；PubMed 的文章類型標註有時較晚完成，剛收錄的文章可能先被歸在 Original；每個類別每期最多收錄 200 篇。</p>
+</details><div class="credit">製作者：JH CHIU MD ・ 協作：Claude Opus 5.5</div></div>
 
 <div class="dlg" id="dlg">
   <div class="sheet">
