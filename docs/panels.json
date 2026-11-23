@@ -331,5 +331,33 @@
    "query": "asciminib, ponatinib, olverembatinib",
    "scope": "core"
   }
- ]
+ ],
+ "impact_factor": {
+  "note": "Journal Impact Factor（Clarivate JCR 2026 版，2025 年 IF）。只列出已核對的期刊；其他期刊可自行補上，鍵名用 PubMed 期刊縮寫。每年 6 月 JCR 更新後請一併更新。",
+  "edition": "JCR 2026",
+  "values": {
+   "N Engl J Med": 84.5,
+   "Lancet": 109.0,
+   "JAMA": 65.4,
+   "BMJ": 55.1,
+   "Nat Med": 52.5,
+   "J Clin Oncol": 44.7,
+   "JAMA Oncol": 23.9,
+   "Ann Oncol": 80.4,
+   "Cancer Cell": 56.1,
+   "Cancer Discov": 29.5,
+   "Nat Rev Clin Oncol": 94.6,
+   "JCO Precis Oncol": 4.7,
+   "J Thorac Oncol": 23.3,
+   "Blood": 23.9,
+   "Lancet Haematol": 20.4,
+   "Leukemia": 8.8,
+   "Haematologica": 8.2,
+   "Blood Adv": 7.7,
+   "J Hematol Oncol": 47.8,
+   "Br J Haematol": 3.6,
+   "HemaSphere": 11.3,
+   "J Thromb Haemost": 5.2
+  }
+ }
 }
