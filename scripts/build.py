@@ -132,7 +132,86 @@ def summaries(pmids):
     return out
 
 
+def efetch_xml(pmids, tries=4):
+    params = {"db": "pubmed", "retmode": "xml", "id": ",".join(pmids), "tool": "hemonc-weekly"}
+    if API_KEY:
+        params["api_key"] = API_KEY
+    if EMAIL:
+        params["email"] = EMAIL
+    data = urllib.parse.urlencode(params).encode()
+    for i in range(tries):
+        try:
+            time.sleep(DELAY)
+            req = urllib.request.Request(EUTILS + "efetch.fcgi", data=data,
+                                         headers={"User-Agent": "hemonc-weekly/1.0"})
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return r.read()
+        except Exception as e:
+            if i == tries - 1:
+                raise
+            print(f"  retry efetch after error: {e}", file=sys.stderr)
+            time.sleep(2 * (i + 1))
+
+
+def parse_abstracts(xml_bytes):
+    """PubMed efetch XML → {pmid: abstract}. 有分段標題時寫成「LABEL: 內容」，每段一行。"""
+    import xml.etree.ElementTree as ET
+    out = {}
+    for art in ET.fromstring(xml_bytes).iter("PubmedArticle"):
+        pmid = (art.findtext("MedlineCitation/PMID") or "").strip()
+        parts = []
+        for t in art.iterfind("MedlineCitation/Article/Abstract/AbstractText"):
+            txt = " ".join("".join(t.itertext()).split())
+            if not txt:
+                continue
+            label = (t.get("Label") or "").strip()
+            parts.append(f"{label}: {txt}" if label and label.upper() != "UNLABELLED" else txt)
+        if pmid:
+            out[pmid] = "\n".join(parts)
+    return out
+
+
+def abstracts(pmids):
+    out = {}
+    for i in range(0, len(pmids), 150):
+        try:
+            out.update(parse_abstracts(efetch_xml(pmids[i:i + 150])))
+        except Exception as e:  # 摘要抓不到不影響當期發行，下次執行會再補
+            print(f"  ! abstracts {i}-{i + 150}: {e}", file=sys.stderr)
+    return out
+
+
+def fill_abstracts(arts):
+    """替還沒有 abstract 欄位的文章補上摘要（沒有摘要的文章存成空字串，不會重抓）。"""
+    need = [k for k, a in arts.items() if "abstract" not in a]
+    if not need:
+        return 0
+    got = abstracts(need)
+    for k in need:
+        if k in got:
+            arts[k]["abstract"] = got[k]
+    return sum(1 for k in need if k in got)
+
+
+def backfill_issues(skip=None):
+    """舊期數補摘要。"""
+    d = os.path.join(DOCS, "data", "issues")
+    for name in sorted(os.listdir(d), reverse=True) if os.path.isdir(d) else []:
+        p = os.path.join(d, name)
+        if not name.endswith(".json") or name == skip:
+            continue
+        issue = json.load(open(p, encoding="utf-8"))
+        n = fill_abstracts(issue.get("articles", {}))
+        if n:
+            with open(p, "w", encoding="utf-8") as f:
+                json.dump(issue, f, ensure_ascii=False, separators=(",", ":"))
+            print(f"  backfilled {n} abstracts in {name}")
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "--abstracts-only":
+        backfill_issues()
+        return
     cfg = json.load(open(os.path.join(DOCS, "panels.json"), encoding="utf-8"))
     monday, start, end = issue_dates()
     if len(sys.argv) > 1:                       # optional: build a past issue, e.g. 2026-11-16
@@ -160,6 +239,7 @@ def main():
         sys.exit("Every search failed; not writing an issue.")
 
     arts = summaries(list(dict.fromkeys(all_ids)))
+    print(f"  abstracts: {fill_abstracts(arts)}/{len(arts)}")
     for pid, ids in lists.items():   # newest first within each panel
         lists[pid] = sorted([i for i in ids if i in arts and arts[i]["title"]],
                             key=lambda i: arts[i]["date"], reverse=True)
@@ -182,6 +262,7 @@ def main():
     with open(idx_path, "w", encoding="utf-8") as f:
         json.dump(idx, f, ensure_ascii=False, indent=1)
     print(f"Wrote issue {monday}: {len(arts)} articles, {len(failed)} failed searches")
+    backfill_issues(skip=f"{monday}.json")
 
 
 if __name__ == "__main__":
