@@ -500,7 +500,7 @@ function initViews(){
   const gc=String(A.goatcounter||"").trim().toLowerCase();
   if(/^[a-z0-9-]+$/.test(gc)){
     const base=`https://${gc}.goatcounter.com`;
-    const sc=document.createElement("script"); sc.async=true; sc.src="https://gc.zgo.at/count.js"; sc.dataset.goatcounter=base+"/count";
+    const sc=document.createElement("script"); sc.async=true; sc.src="https://gc.zgo.at/count.js"; sc.dataset.goatcounter=base+"/count"; sc.dataset.goatcounterSettings='{"allow_frame":true}'; // 從整合入口頁（iframe）開啟也要計數
     document.head.appendChild(sc);
     // GoatCounter stores new views after a few seconds: read now, then again to include this visit
     const read=async()=>{try{const r=await fetch(`${base}/counter/TOTAL.json`,{cache:"no-store"});
