@@ -494,7 +494,7 @@ $("#addForm").onsubmit=e=>{
 // Default: Abacus (abacus.jasoncameron.dev), free, no sign-up, no cookies.
 // Counts one view per browser session; reloads in the same session only read the total.
 // If analytics.goatcounter is set in panels.json, GoatCounter is used instead.
-function showViews(n){ n=String(n??"").trim(); if(n&&n!=="0") $("#views").innerHTML=`累計瀏覽 <b>${esc(Number(n.replace(/,/g,""))?Number(n.replace(/,/g,"")).toLocaleString("en-US"):n)}</b> 人次`; }
+function showViews(n){ n=String(n??"").trim(); if(n) $("#views").innerHTML=`累計瀏覽 <b>${esc(Number(n.replace(/,/g,""))?Number(n.replace(/,/g,"")).toLocaleString("en-US"):n)}</b> 人次`; }
 function initViews(){
   const A=CFG.analytics||{};
   const gc=String(A.goatcounter||"").trim().toLowerCase();
@@ -502,7 +502,10 @@ function initViews(){
     const base=`https://${gc}.goatcounter.com`;
     const sc=document.createElement("script"); sc.async=true; sc.src="https://gc.zgo.at/count.js"; sc.dataset.goatcounter=base+"/count";
     document.head.appendChild(sc);
-    setTimeout(async()=>{try{const r=await fetch(`${base}/counter/TOTAL.json`); if(r.ok) showViews((await r.json()).count)}catch(e){}},1500);
+    // GoatCounter stores new views after a few seconds: read now, then again to include this visit
+    const read=async()=>{try{const r=await fetch(`${base}/counter/TOTAL.json`,{cache:"no-store"});
+      if(r.ok) showViews((await r.json()).count); else if(r.status===404) showViews("0"); else console.warn("GoatCounter counter:",r.status)}catch(e){console.warn("GoatCounter counter:",e)}};
+    setTimeout(read,1500); setTimeout(read,15000);
     return;
   }
   const ab=A.abacus; if(!ab||!ab.namespace||!ab.key) return;
