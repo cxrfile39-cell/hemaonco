@@ -361,7 +361,11 @@
   }
  },
  "analytics": {
-  "note": "瀏覽人次：到 goatcounter.com 免費註冊，把 Code（例如 hemaonco，網址會是 hemaonco.goatcounter.com）填在 goatcounter；並在 GoatCounter 的 Settings 勾選「Allow adding visitor counts on your website」，網頁才能顯示累計人次。留空則不記錄。",
+  "note": "瀏覽人次：預設用 Abacus 免註冊計數（namespace/key 可改，改了會從 0 重新計算）。若想要詳細統計，可改填 goatcounter 代碼（需到 goatcounter.com 註冊），填了就改用 GoatCounter。",
+  "abacus": {
+   "namespace": "cxrfile39-cell.github.io",
+   "key": "hemaonco"
+  },
   "goatcounter": ""
  }
 }

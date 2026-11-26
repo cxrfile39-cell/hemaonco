@@ -490,22 +490,30 @@ $("#addForm").onsubmit=e=>{
   initViews();
 })();
 
-// ---------- page-view counter (GoatCounter, no cookies) ----------
+// ---------- page-view counter ----------
+// Default: Abacus (abacus.jasoncameron.dev), free, no sign-up, no cookies.
+// Counts one view per browser session; reloads in the same session only read the total.
+// If analytics.goatcounter is set in panels.json, GoatCounter is used instead.
+function showViews(n){ n=String(n??"").trim(); if(n&&n!=="0") $("#views").innerHTML=`累計瀏覽 <b>${esc(Number(n.replace(/,/g,""))?Number(n.replace(/,/g,"")).toLocaleString("en-US"):n)}</b> 人次`; }
 function initViews(){
-  const code=String((CFG.analytics&&CFG.analytics.goatcounter)||"").trim().toLowerCase();
-  if(!/^[a-z0-9-]+$/.test(code)) return;            // not set up: count nothing
-  const base=`https://${code}.goatcounter.com`;
-  const sc=document.createElement("script");
-  sc.async=true; sc.src="https://gc.zgo.at/count.js"; sc.dataset.goatcounter=base+"/count";
-  document.head.appendChild(sc);
-  // total views of the whole site (needs "Allow adding visitor counts" in GoatCounter settings)
-  setTimeout(async()=>{
-    try{
-      const r=await fetch(`${base}/counter/TOTAL.json`); if(!r.ok) return;
-      const d=await r.json(); const n=String(d.count||"").trim(); if(!n) return;
-      $("#views").innerHTML=`累計瀏覽 <b>${esc(n)}</b> 人次`;
-    }catch(e){}
-  },1500);
+  const A=CFG.analytics||{};
+  const gc=String(A.goatcounter||"").trim().toLowerCase();
+  if(/^[a-z0-9-]+$/.test(gc)){
+    const base=`https://${gc}.goatcounter.com`;
+    const sc=document.createElement("script"); sc.async=true; sc.src="https://gc.zgo.at/count.js"; sc.dataset.goatcounter=base+"/count";
+    document.head.appendChild(sc);
+    setTimeout(async()=>{try{const r=await fetch(`${base}/counter/TOTAL.json`); if(r.ok) showViews((await r.json()).count)}catch(e){}},1500);
+    return;
+  }
+  const ab=A.abacus; if(!ab||!ab.namespace||!ab.key) return;
+  const ok=s=>/^[A-Za-z0-9_.-]{3,64}$/.test(s); if(!ok(ab.namespace)||!ok(ab.key)) return;
+  let seen=false; try{seen=sessionStorage.getItem("hemonc-counted")==="1"}catch(e){}
+  const url=`https://abacus.jasoncameron.dev/${seen?"get":"hit"}/${encodeURIComponent(ab.namespace)}/${encodeURIComponent(ab.key)}`;
+  fetch(url).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d||d.value==null) return;
+    if(!seen) try{sessionStorage.setItem("hemonc-counted","1")}catch(e){}
+    showViews(d.value);
+  }).catch(()=>{});
 }
 </script>
 </body>
