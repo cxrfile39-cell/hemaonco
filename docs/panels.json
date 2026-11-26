@@ -359,5 +359,9 @@
    "HemaSphere": 11.3,
    "J Thromb Haemost": 5.2
   }
+ },
+ "analytics": {
+  "note": "瀏覽人次：到 goatcounter.com 免費註冊，把 Code（例如 hemaonco，網址會是 hemaonco.goatcounter.com）填在 goatcounter；並在 GoatCounter 的 Settings 勾選「Allow adding visitor counts on your website」，網頁才能顯示累計人次。留空則不記錄。",
+  "goatcounter": ""
  }
 }
